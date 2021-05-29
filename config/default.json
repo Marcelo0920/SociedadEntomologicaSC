@@ -1,0 +1,4 @@
+{
+    "mongoURI" : "mongodb+srv://LongMan:G1thvb@sociedadentomologica.mn9ul.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "AttackOnTitan"
+}
