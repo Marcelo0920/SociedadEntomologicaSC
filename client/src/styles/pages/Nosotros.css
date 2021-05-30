@@ -1,0 +1,25 @@
+.nosotros-section
+{
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+.nosotros-section h3
+{
+    margin-bottom: 1em;
+}
+.nosotros-section-contacto
+{
+    text-align: left;
+    padding-left: 8.5em;
+}
+.nosotros-section-contacto p
+{
+    margin-bottom: 0.7em;
+}
+textarea{
+    margin-top: 1em;
+    padding: 1em;
+    resize: none;
+    height: 38vh;
+    width: 38vw;
+}

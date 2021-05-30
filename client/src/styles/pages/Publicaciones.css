@@ -1,0 +1,16 @@
+.articulos
+{
+    text-align: left;
+}
+.navegacion-publicaciones
+{
+    display: flex;
+    padding: 6em 3em 3em 3em;
+}
+.navegacion-publicaciones h4
+{
+    border-bottom: 2px solid #707070;
+    padding-right: 2em;
+    padding-bottom: 0.5em;
+    font-size: 1.4em;
+}

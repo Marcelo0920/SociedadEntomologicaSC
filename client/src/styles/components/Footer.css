@@ -1,0 +1,31 @@
+footer{
+    background-color: #3CB148;
+    display: flex;
+    height: 12vh;
+    justify-content: space-between;
+    margin-top: 6em;
+    padding-top: 2em;
+    padding-bottom: 5em;
+}
+footer h2
+{
+    color: white;
+}
+footer p
+{
+    color: white;
+    padding-top: 1em;
+    padding-right: 1.6em;
+}
+.social-network
+{
+    padding-top: 1em;
+    display: flex;
+    padding-left: 1.4em;
+}
+.social-network ul i
+{
+    color: white;
+    padding-left: 0.8em;
+    font-size: 1.7em;
+}
