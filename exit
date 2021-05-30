@@ -1,0 +1,29 @@
+[33mcommit 2b676a02be16cc5fc2b2d9ead4c6ecfb63974004[m[33m ([m[1;36mHEAD -> [m[1;32mHotFixReactLeaft[m[33m, [m[1;32mmaster[m[33m, [m[1;32mHotFix[m[33m)[m
+Author: Marcelo0920 <marcelo0920.z@gmail.com>
+Date:   Sun May 30 14:44:34 2021 -0400
+
+    Terminado de agregar todo el front, pero presentando un error con el webpack y el react-leaft
+
+[33mcommit fbc1b7d7a3dbef42bb3eea05a609a5b17141e7b8[m
+Author: Marcelo0920 <marcelo0920.z@gmail.com>
+Date:   Sun May 30 14:25:24 2021 -0400
+
+    Agregando la estructura del Front, like Componentes, Pages y rutas del App.js
+
+[33mcommit 85a1d11f5637f5bec85d39bfb6e915e13c9bcb4f[m
+Author: Marcelo0920 <marcelo0920.z@gmail.com>
+Date:   Sat May 29 17:56:05 2021 -0400
+
+    git ignore the photos folder
+
+[33mcommit 1e07be98c1e00e5afab64fd18fef59e67b9bb080[m
+Author: Marcelo0920 <marcelo0920.z@gmail.com>
+Date:   Sat May 29 17:55:03 2021 -0400
+
+    Terminado toda la parte de rutas con el middle ware de autenticacion y el middleware de multer para subir imagenes de tipo JPG y PNG
+
+[33mcommit b3dbb2e8dd68a4541889a448039cb2c27d15cadc[m
+Author: Marcelo0920 <marcelo0920.z@gmail.com>
+Date:   Tue May 25 21:19:27 2021 -0400
+
+    First commit, created SERVER file
