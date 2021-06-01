@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../actions/auth';
@@ -7,11 +7,11 @@ import {login} from '../actions/auth';
 import '../styles/pages/Login.css';
 
 
-const Login = ({login}) => {
+const Login = ({login, isAuthenticated}) => {
 
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        password: '',
     })
 
     const {email, password} = formData; 
@@ -25,18 +25,33 @@ const Login = ({login}) => {
         login(email, password);
     }
 
+    //Redirect if Logged in
+    if(isAuthenticated){
+        return <Redirect to = "/" />
+    }
+
     return(
         <section className = "login">
             <div className = "form-container">
             <h1>Iniciar Sesión</h1>
             <form onSubmit = {e => onSubmit(e)}>
                 <div className = "control">
-                    <label for = "email">Email</label>
-                    <input type = "email" name = "email" value = "email" onChange = {e => onChange(e)} />
+                    <label htmlFor = "email">Email</label>
+                    <input 
+                        type = "email" 
+                        name = "email" 
+                        placeholder = "Tu correo electrónico"
+                        value = {email} 
+                        onChange = {e => onChange(e)} 
+                        required/>
                 </div>
                 <div className = "control">
-                    <label for = "password">Password</label>
-                    <input type = "password" name = "password" value = "password" onChange = {e => onChange(e)}/>
+                    <label htmlFor = "password">Password</label>
+                    <input 
+                        type = "password" 
+                        name = "password" 
+                        value = {password} 
+                        onChange = {e => onChange(e)}/>
                 </div>
                 <div className = "control">
                     <input type = "submit" value = "Login" />
@@ -52,8 +67,12 @@ const Login = ({login}) => {
 }
 
 Login.propTypes = {
-    login: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
 }
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
 
-export default connect(null, {login})(Login);
+export default connect(mapStateToProps, {login})(Login);
