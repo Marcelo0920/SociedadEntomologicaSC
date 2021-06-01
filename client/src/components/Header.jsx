@@ -30,8 +30,8 @@ const Header = () =>
                 <div className="user__menu">
                     <img src= {User} />
                     <ul>
-                    <Link to="login.html">Iniciar Sesión</Link>
-                    <Link to="registro.html">Registrarme</Link>
+                        <Link to="/login">Iniciar Sesión</Link>
+                        <Link to="/register">Registrarme</Link>
                     </ul>
                 </div>
                 </nav>
