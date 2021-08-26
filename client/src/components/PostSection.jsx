@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addPost} from '../actions/post';
@@ -6,28 +7,55 @@ import {addPost} from '../actions/post';
 import '../styles/components/PublicarSection.css'
 
 
-const ReunionSection = ({addPost}) => {
+const PostSection = ({addPost}) => {
 
-	const [formData, setFormData] = useState({
-        text: '',
-        title: ''
-    });
+    const [image, setImage] = useState("");
+    const [url, setUrl] = useState("");
+    const [title, setTitle] = useState("");
+    const [text, setText] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const [postImg, setPostImg] = useState({});
 
-    const  {title, text} = formData;
+    useEffect(() => {
+        if(url){
+            addPost({title, text, url});
+            console.log("Succesfully posted");
+            setLoading(false);
+        }
+    }, [url]);
     
+    const onSubmit = e => {
+        e.preventDefault();
+       // const files = e.target.files[0];
+        const data = new FormData();
+        data.append("file", image);
+        data.append("upload_preset", "sociedad_entomologica_crucena");
+        data.append("cloud_name", "dvqsabodr")
+        setLoading(true);
+
+        //axios.post('https://api.cloudinary.com/v1_1/dvqsabodr/image/upload', data)
+        fetch("	https://api.cloudinary.com/v1_1/dvqsabodr/image/upload",
+            {method: "post",
+            body: data
+            })
+            .then(res => res.json())
+            .then(data => {
+                setUrl(data.url);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
+/* 
     const onSubmit = e => {
         e.preventDefault();
         console.log(postImg);
         const data = new FormData();
         data.append("file",postImg);
         addPost({text, title, postImg});   
-    }
+    } */
 
-    const onChange = e => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-    }
     
 
     return(
@@ -36,18 +64,18 @@ const ReunionSection = ({addPost}) => {
                 <h3>Publicar un Post</h3>
             </div>
             <form className="publicar centrado" onSubmit = {e => onSubmit(e)}>
-                <input type = "text" name = "title" value = {title} placeholder = "Título" onChange = {e => onChange(e)}  required/>
+                <input type = "text" name = "title" value = {title} placeholder = "Título" onChange = {e => {setTitle(e.target.value)}}  required/>
                 <textarea
                     name="text"
                     cols="30"
                     rows="5"
                     placeholder="Crea un post"
                     value = {text}
-                    onChange = {e => onChange(e)}
+                    onChange = {e => {setText(e.target.value)}}
                     required
                 ></textarea>
-                
-                <input type = "file" onChange = {e => {const img = e.target.files[0]; setPostImg(img)}} />
+                {loading? <p>Subiendo Post...</p> : <p></p>}
+                <input type = "file" onChange = {e => setImage(e.target.files[0])} />
                 
                 <input type="submit" value="Publicar" />
             </form>
@@ -55,8 +83,8 @@ const ReunionSection = ({addPost}) => {
     )
 }
 
-ReunionSection.propTypes = {
+PostSection.propTypes = {
     addPost: PropTypes.func.isRequired
 }
 
-export default connect(null, {addPost})(ReunionSection);
+export default connect(null, {addPost})(PostSection);

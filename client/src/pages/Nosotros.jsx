@@ -18,27 +18,21 @@ const Nosotros = ({addComment}) => {
       
         <h3>Quiénes Somos</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-          laudantium cupiditate aliquid, sequi eius numquam quisquam ipsum
-          perspiciatis. Earum recusandae laudantium vero, aspernatur iste
-          nostrum autem placeat commodi ut debitis. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Temporibus, reiciendis quidem ab,
-          dignissimos nihil corrupti laborum fuga perspiciatis atque labore,
-          iure architecto ducimus voluptatibus sequi molestias distinctio
-          corporis id veniam.
+        La Sociedad Entomológica Cruceña (SEC), es una organización científica sin fines de lucro que fue creada con el ánimo de contribuir al conocimiento de la diversidad e interacciones de los artrópodos y en especial Insectos con énfasis en la región oriental del país; motivado ante la escasa investigación existente en este ámbito a fin de fortalecer los mecanismos de conservación de esta fauna.
         </p>
       </div>
       <div className="nosotros-section">
         <h3>Historia de la SEC</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-          laudantium cupiditate aliquid, sequi eius numquam quisquam ipsum
-          perspiciatis. Earum recusandae laudantium vero, aspernatur iste
-          nostrum autem placeat commodi ut debitis. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Temporibus, reiciendis quidem ab,
-          dignissimos nihil corrupti laborum fuga perspiciatis atque labore,
-          iure architecto ducimus voluptatibus sequi molestias distinctio
-          corporis id veniam.
+        La Sociedad Entomológica Cruceña (SEC), fue concebida por un grupo de ingenieros agrónomos y biólogos adeptos y entusiastas con la Entomología en general, que plasmaron la idea ante la necesidad de un ente que vincule los conocimiento de esta gran disciplina; y se decidió nombrar un directiva provisional cuyos integrantes son: <br />
+        Presidente: Juan Jose Lagrava  <br />
+        Vicepresidente: Ma. Julieta Ledezma <br />
+        Secretario:<br />
+        Tesorero:<br />
+        Vocales:<br />
+
+El propósito inicial fue consolidar el Estatuto para regir los destinos de la Sociedad, además de promocionar la organización en todos sus niveles. Además de organizar el primer Congreso Departamental de Entomología.
+
         </p>
       </div>
       <div className="nosotros-section">

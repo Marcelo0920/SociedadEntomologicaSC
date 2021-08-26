@@ -10,7 +10,7 @@ const User = require('../../models/User');
 //route POST api/users
 
 
-router.post('/', upload.single('postImg'),  auth, async(req, res) => {
+router.post('/', auth, async(req, res) => {
 
     console.log(req.body);
 
@@ -29,7 +29,7 @@ router.post('/', upload.single('postImg'),  auth, async(req, res) => {
             title: req.body.title,
             avatar: user.avatar,
             user: req.user.id,
-            postImg: req.file.postImg
+            postImg: req.body.url
         })
         const post = await newPost.save();
 

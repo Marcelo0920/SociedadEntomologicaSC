@@ -18,7 +18,7 @@ const ArticuloPublicacion = ({auth, post: {_id, text, name, title, date, postImg
 				</p>
 				<p>Publicado por {name} el <Moment format = "YYYY/MM/DD">{date}</Moment></p>
 			  </div>
-			  <img src={(`http://localhost:5000/uploads/${postImg}`)} alt="foto articulo" />
+			  <img src={postImg} alt="foto articulo" />
 			</article>
 		  );
 };
