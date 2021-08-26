@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import Articulo from '../components/Articulo';
 import '../styles/pages/Home.css';
 import Despedida from '../static/despedida.png';
@@ -48,8 +48,11 @@ const Home = () => {
         </div>
       </section>
       <div className="hero">
-        <h2>Ver Galería de Fotos</h2>
-        <button>¡Claro!</button>
+        <h2>Ver Publicaciones</h2>
+        <Link to = "/publicaciones">
+          <button>¡Claro!</button>
+        </Link>
+        
       </div>
       <div className= "despedida ochenta centrado ">
         <div className="despedida-contenido">

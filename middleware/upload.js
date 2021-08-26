@@ -21,6 +21,7 @@ var upload = multer({
     storage: imgStorage,
     fileFilter: function(req, file, callback){
         if(!file.originalname.match(/\.(png|jpg)$/) ){
+            console.log('this ...');
             return callback (new Error('Por favor solo suba imagenes de tipo JPG o PNG'))
         }
         callback(undefined, true)

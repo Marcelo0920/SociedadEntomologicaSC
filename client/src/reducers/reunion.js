@@ -1,11 +1,11 @@
 import {
-    GET_POSTS,
-    POST_ERROR,
-    ADD_POST
+    ADD_REUNION,
+    GET_REUNIONES,
+    REUNION_ERROR
 } from '../actions/types';
 
 const initialState = {
-    posts: [],
+    reunions: [],
     loading: true,
     error: {}
 }
@@ -14,22 +14,22 @@ export default function(state = initialState, action){
     const {type, payload} = action;
 
     switch(type){
-        case GET_POSTS:
-            return{
-                ...state,
-                posts: payload,
-                loading: false
-            }
-        case POST_ERROR:
+        case REUNION_ERROR:
             return{
                 ...state,
                 error: payload,
                 loading: false
             }
-        case ADD_POST:
+        case GET_REUNIONES:
             return{
                 ...state,
-                posts: [payload, ...state.posts],
+                reunions: payload,
+                loading: false
+            }
+        case ADD_REUNION:
+            return{
+                ...state,
+                reunions: [payload, ...state.reunions],
                 loading: false
             }
         default:

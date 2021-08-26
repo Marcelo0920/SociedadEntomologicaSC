@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {logout} from '../actions/auth';
@@ -14,19 +14,21 @@ const Header = ({auth: {isAuthenticated, loading}, logout}) =>
  	const [myTitle, setMyTitle] = useState("/");
 
     const authLinks = (
-        
-            <Fragment>
+    
+            <Fragment>             
                 <img alt="logo" />
-                <nav className="navigation-link">
+                <nav className="navigation-link">  {/*<---------Navega a través de los posibles valores de title para hacerle Link*/}
 				{
-					title.map(Titulo =>(
+					title.map(Titulo =>(  
 						<Link to = {Titulo} 
 							key = {Titulo}
 							onClick = {() => setMyTitle(Titulo)}>
 							{Titulo=="/"? "Inicio" : Titulo}
 						</Link>
-					))
+					))    
 				}
+                <Link to = "comentarios">Comentarios</Link>
+                <Link to = "publicar">Publicar</Link>
                 <div className="user__menu">
                     <img src= {User} />
                     <ul>
@@ -75,7 +77,9 @@ const Header = ({auth: {isAuthenticated, loading}, logout}) =>
 				{
 					myTitle=="/"? "Sociedad Entomológica Cruceña" : myTitle
 				}</h1>
-                <button className="button-header button-2">Sé un Miembro</button>
+                <Link to = "/register">
+                    <button className="button-header button-2"   >Sé un Miembro</button>
+                </Link>
             </div>
         </header>
     )

@@ -1,11 +1,8 @@
-import {
-    GET_POSTS,
-    POST_ERROR,
-    ADD_POST
-} from '../actions/types';
+import {GET_COMMENTS, COMMENT_ERROR, ADD_COMMENT} from '../actions/types';
+
 
 const initialState = {
-    posts: [],
+    comments: [],
     loading: true,
     error: {}
 }
@@ -14,25 +11,25 @@ export default function(state = initialState, action){
     const {type, payload} = action;
 
     switch(type){
-        case GET_POSTS:
+        case GET_COMMENTS:
             return{
                 ...state,
-                posts: payload,
+                comments: payload,
                 loading: false
             }
-        case POST_ERROR:
+        case COMMENT_ERROR:
             return{
                 ...state,
                 error: payload,
                 loading: false
             }
-        case ADD_POST:
+        case ADD_COMMENT:
             return{
                 ...state,
-                posts: [payload, ...state.posts],
+                comments: [payload, ...state.comments],
                 loading: false
             }
         default:
-            return state;
+            return state
     }
 }

@@ -1,56 +1,36 @@
-import React from 'react';
+import React, {useEffect, Fragment} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import Spinner from './Spinner';
+import {getReunions} from '../actions/reunion';
 
-import ArticuloPublicacion from './ArticuloPublicacion';
+import ArticuloReunion from './ArticuloReunion';
 
-class Reuniones extends React.Component
-{
-	state = {
-		loading: true,
-		error: null,
-		data: undefined,
-	}
-	/* componentDidMount() {
-		this.fetchData();
-	  }
-	
-	  fetchData = async () => {
-		this.setState({ loading: true, error: null });
-	
-		try {
-		  const data = await api.badges.list();
-		  this.setState({ loading: false, data: data });
-		} catch (error) {
-		  this.setState({ loading: false, error: error });
-		}
-	}; */
-	render()
-	{
-		/* if (this.state.loading === true) {
-			return 'Loading...';
-		}
-	  
-		if (this.state.error) {
-			return `Error: ${this.state.error.message}`;
-		} */
 
-		return(
-			<>
-				{/* {this.props.publicaciones.map(publicacion => {
-					return (
-						<li key = {publicacion.id}>
-							<ArticuloPublicacion publicacion = {publicacion} />
-						</li>
-					)
-				})} */}
-				<ArticuloPublicacion />
-				<ArticuloPublicacion />
-				<ArticuloPublicacion />
-				<ArticuloPublicacion />
-				<ArticuloPublicacion />
-				<ArticuloPublicacion />
-			</>
+
+const Reuniones = ({getReunions, reunion:{reunions, loading}}) => {
+
+	useEffect(() => {
+		getReunions();
+	}, [getReunions])
+
+	return( loading ? <Spinner /> : (
+			<Fragment>
+				{reunions.map(reunion => (
+					<ArticuloReunion key = {reunion._id} reunion = {reunion} />
+				))}
+			</Fragment>
 		)
-	}
+	)
 }
 
-export default Reuniones;
+Reuniones.propTypes = {
+	getReunions: PropTypes.func.isRequired,
+	reunion: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+	reunion: state.reunion
+})
+
+export default connect(mapStateToProps, {getReunions})(Reuniones);

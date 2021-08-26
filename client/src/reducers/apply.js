@@ -1,7 +1,7 @@
 import {
-    GET_POSTS,
-    POST_ERROR,
-    ADD_POST
+    GET_APPLY,
+    APPLY_ERROR,
+    ADD_APPLY,
 } from '../actions/types';
 
 const initialState = {
@@ -14,22 +14,22 @@ export default function(state = initialState, action){
     const {type, payload} = action;
 
     switch(type){
-        case GET_POSTS:
+        case GET_APPLY:
             return{
                 ...state,
-                posts: payload,
+                applies: payload,
                 loading: false
             }
-        case POST_ERROR:
+        case APPLY_ERROR:
             return{
                 ...state,
                 error: payload,
                 loading: false
             }
-        case ADD_POST:
+        case ADD_APPLY:
             return{
                 ...state,
-                posts: [payload, ...state.posts],
+                applies: [payload, ...state.applies],
                 loading: false
             }
         default:

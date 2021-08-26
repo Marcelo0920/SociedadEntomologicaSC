@@ -1,35 +1,35 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
+import Moment from 'react-moment';
+import {connect} from 'react-redux';
 
 import '../styles/components/ArticuloPublicacion.css';
-import articulo3 from '../static/article_1.png';
 
-class ArticuloPublicacion extends React.Component
-{
-	render()
-	{
-		return (
+const ArticuloPublicacion = ({auth, post: {_id, text, name, title, date, postImg}}) => {
+
+	return(
 			<article className="articulos-publicacion">
 			  <div>
+				<h5>
+					<strong>{title}</strong>
+				</h5>
 				<p>
-					{/* <strong>{this.props.publicacion.title}</strong> */}
-				  <strong>Lorem Ipsum</strong>
+				  	{text}
 				</p>
-				<p>
-					{/* {this.props.publicacion.content} */}
-				  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum
-				  dolorem quod veniam sed, iure eveniet? Itaque, illum distinctio.
-				  Repellat, natus! Id voluptate quia porro ratione magnam dolorem
-				  temporibus provident.Lore Lorem ipsum dolor sit amet consectetur
-				  adipisicing elit. Reiciendis ea doloribus illum cum modi error tempore
-				  molestiae molestias facere consectetur. Debitis natus nemo quo modi
-				  molestias impedit laudantium sunt corrupti!
-				</p>
+				<p>Publicado por {name} el <Moment format = "YYYY/MM/DD">{date}</Moment></p>
 			  </div>
-			  <img src={articulo3} alt="articulo 3" />
-			  {/* <img src = {this.props.publicacion.img} /> */}
+			  <img src={(`http://localhost:5000/uploads/${postImg}`)} alt="foto articulo" />
 			</article>
 		  );
-		};
-	}
+};
+
+ArticuloPublicacion.propTypes = {
+	post: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+	auth: state.auth
+})
   
-export default ArticuloPublicacion;
+export default connect(mapStateToProps, {})(ArticuloPublicacion);

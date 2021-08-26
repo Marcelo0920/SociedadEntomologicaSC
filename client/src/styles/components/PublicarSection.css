@@ -1,0 +1,10 @@
+.publicar{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.publicar input{
+    margin-top: 20px;
+    height: 25px;
+    width: 250px;
+}

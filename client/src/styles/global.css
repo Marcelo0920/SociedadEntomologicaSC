@@ -9,6 +9,9 @@ body{
 a{
     text-decoration: none;
 }
+a:visited{
+    color: black;
+}
 .ochenta
 {
     width: 80%;
@@ -53,6 +56,9 @@ button{
     font-size: 1.2em;
     padding: 8px 20px;
     font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
 }
 .leaflet-container {
     width: 40vw; 

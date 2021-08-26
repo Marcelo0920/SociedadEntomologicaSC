@@ -12,7 +12,7 @@ const Footer = () =>
                 <ul><a href = "https://instagram.com" target = "_blank" ><i className="fab fa-instagram"></i></a></ul>
             </nav>
             <h2>Sociedad Entomológica Cruceña</h2>
-            <p>Made by @Marcelo_Vargas_Avila</p>
+            <p>Made by Maru</p>
         </footer>
     )
 }

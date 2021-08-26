@@ -1,93 +1,67 @@
 const express = require('express');
 const router = express.Router();
 const auth =    require('../../middleware/auth');
-const upload = require('../../middleware/upload');
 const {validationResult} = require('express-validator');
 
-const Post = require('../../models/Post');
+
 const User = require('../../models/User');
+const Reuniones = require('../../models/Reunion');
 
-//route POST api/users
 
 
-router.post('/', upload.single('postImg'),  auth, async(req, res) => {
+//ROUTER post a new REUNION 
+//ACCESS PRIVATE
 
-    console.log(req.body);
+router.post('/', auth, async(req, res) => {
 
     const errors = validationResult(req);
-    const postImg = req.file;
-    if(!errors.isEmpty() && postImg){
+    if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
     }
 
     try {
         const user = await User.findById(req.user.id).select('-password');
 
-        const newPost = new Post({
+        const newReunion = new Reuniones({
             text: req.body.text,
             name: user.name,
             title: req.body.title,
-            avatar: user.avatar,
             user: req.user.id,
-            postImg: req.file.postImg
         })
-        const post = await newPost.save();
+        const reunion = await newReunion.save();
 
-        res.send(post);
+        res.send(reunion);
 
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-    
-    
 })
 
-//@route  GET api/posts
-//@desc Get all posts
-//@access Public
+//ROUTER GET ALL REUNIONS
+//ACCESS PUBLIC
 
 router.get('/', async(req, res) => {
     try {
-      const posts = await Post.find().sort({date: -1});
-      res.send(posts);
+      const reunions = await Reuniones.find().sort({date: -1});
+      res.send(reunions);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
 })
 
-//@route  GET api/posts/:id
-//@desc Get post by id
-//@access Public
 
-router.get('/:id', async(req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-
-      if(!post){
-          return res.status(404).json({msg: 'No existe el post que busca :('});
-      }
-      res.send(post);
-    } catch (err) {
-        console.error(err.message);
-        if(err.kind === 'ObjectId'){
-            return res.status(404).json({msg:'No existe el post que busca :('});
-        }
-        res.status(500).send('Server Error');
-    }
-})
-
-//@route  DELETE api/posts/:id
+//@route  DELETE api/posts/reuniones/:id
 //@desc Delete a post
 //@access private
 
 router.delete('/:id',auth, async(req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const reunion = await Reuniones.findById(req.params.id);
         
         if(!post){
-            return res.status(404).json({msg: 'No existe el post que busca :('});
+            return res.status(404).json({msg: 'No existe la imagen que busca :('});
         }
 
         //Check if user ownes the post
@@ -95,7 +69,7 @@ router.delete('/:id',auth, async(req, res) => {
             return res.status(401).json({msg: 'Usted no está autorizado para hacer esto >:('});
         }
 
-        await post.remove();
+        await reunion.remove();
 
         res.json({msg: '¡Post eliminado con éxito!'});
     } catch (err) {
@@ -106,8 +80,6 @@ router.delete('/:id',auth, async(req, res) => {
         res.status(500).send('Server Error');
     }
 })
-
-////////////////////////////////////////////////////////////////////////////////////7
 
 
 module.exports = router;
