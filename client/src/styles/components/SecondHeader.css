@@ -1,7 +1,7 @@
-.header-inicio
+.header-inicio-1
 {
-    background-image: url('../../static/header.jpg');
-    height: 120vh;
+    background-color: #1e8829;
+    height: 10vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -22,13 +22,13 @@
 {
     padding-left: 15px;
 }
-.navigation-link li
+.navigation-link a
 {
     padding-left: 8px;
     color: white;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
-    font-size: 1.3em¿;
+    font-size: 1.3em;
     padding-left: 10px;
     padding-top: 10px;
 }
@@ -57,7 +57,7 @@
     margin: 250px 125px;
     text-align: center;
 }
-/* .user__menu ul
+.user__menu ul
 {
     display: none;
     position: absolute;
@@ -70,7 +70,7 @@
     margin-top: 0%;
     display: flex;
     flex-direction: column;
-} */
+}
 .hide ul
 {
     display: none;

@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../actions/auth';
+import SecondHeader from '../components/headerComponents/SecondHeader';
 
 import '../styles/pages/Login.css';
 
@@ -31,6 +32,8 @@ const Login = ({login, isAuthenticated}) => {
     }
 
     return(
+        <>
+        <SecondHeader />
         <section className = "login">
             <div className = "form-container">
             <h1>Iniciar Sesión</h1>
@@ -62,7 +65,7 @@ const Login = ({login, isAuthenticated}) => {
             </div>
         </div>
         </section>
-        
+        </>
     )
 }
 

@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 
 import CommentSection from '../components/CommentSection';
 import ApplySection from '../components/ApplySection';
+import SecondHeader from '../components/headerComponents/SecondHeader';
 
 import '../styles/pages/Publicaciones.css';
 
@@ -13,6 +14,8 @@ const Comments = () => {
     const[myComment, setMyComment] = useState("Comments");
 
     return(
+        <>
+        <SecondHeader />
         <section className = "ochenta centrado">
             <div className = "navegacion-publicaciones">
                 {
@@ -33,6 +36,7 @@ const Comments = () => {
                 {myComment == "Applies" && <ApplySection />}
             </div>
         </section>
+        </>
     )
 }
 

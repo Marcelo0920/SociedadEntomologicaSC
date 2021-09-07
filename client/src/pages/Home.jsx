@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 import Articulo from '../components/Articulo';
 import '../styles/pages/Home.css';
 import Despedida from '../static/despedida.png';
+import Header from '../components/headerComponents/Header';
 
 const Home = () => {
   return (
     <>
+    <Header />
       <section className="main-section centrado ochenta">
         <div className="intro">
           <h2>Bienvenido a la Sociedad Entomológica Cruceña</h2>

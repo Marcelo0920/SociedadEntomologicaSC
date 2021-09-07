@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addApply} from '../actions/apply';
+import SecondHeader from '../components/headerComponents/SecondHeader';
 
 import '../styles/pages/Register.css'
 
@@ -27,6 +28,8 @@ const Register = ({addApply}) =>  {
 
 
     return(
+        <>
+        <SecondHeader />
         <section className = "login">
             <div className = "form-container">
                 <h1>Formulario de Registro</h1>
@@ -87,6 +90,7 @@ const Register = ({addApply}) =>  {
                 </form>
             </div>
         </section>
+        </>
     )
 }
 

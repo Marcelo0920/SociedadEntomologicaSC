@@ -1,17 +1,10 @@
-import React, {useState} from 'react';
-import {connect} from 'react-redux';
-import {addComment} from '../actions/comment';
-import PropTypes from 'prop-types';
-import SecondHeader from '../components/headerComponents/SecondHeader';
+import React from 'react';
 
-import MapLeaf from '../components/Map';
+import SecondHeader from '../../components/headerComponents/SecondHeader';
 
-import '../styles/pages/Nosotros.css';
-import '../styles/components/Map.css';
 
-const Nosotros = ({addComment}) => {
+const QuienesSomos = () => {
 
-  const [text, setText] = useState('');
 
   return (
     <>
@@ -34,7 +27,7 @@ const Nosotros = ({addComment}) => {
         Tesorero:<br />
         Vocales:<br />
 
-El propósito inicial fue consolidar el Estatuto para regir los destinos de la Sociedad, además de promocionar la organización en todos sus niveles. Además de organizar el primer Congreso Departamental de Entomología.
+        El propósito inicial fue consolidar el Estatuto para regir los destinos de la Sociedad, además de promocionar la organización en todos sus niveles. Además de organizar el primer Congreso Departamental de Entomología.
 
         </p>
       </div>
@@ -47,31 +40,10 @@ El propósito inicial fue consolidar el Estatuto para regir los destinos de la S
         <strong>Visión </strong>La SEC, es una institución científica líder en investigaciones de artrópodos con énfasis entomológica que coadyuva en políticas de conservación de la biodiversidad, la producción agropecuaria sostenible, la salud pública y la formación de recursos humanos.
         </p>
       </div>
-      <div className="nosotros-section">
-        <h3>Contacto</h3>
-        <MapLeaf />
-        <div className="nosotros-section-contacto">
-          <p>
-            <strong>Número de Teléfono : </strong>3326894
-          </p>
-          <p>
-            <strong>Correo electrónico : </strong>marcelo0920.z@gmail.com
-          </p>
-          <p>
-            <strong>Déjanos un mensaje</strong>
-          </p>
-          <textarea name = "text" placeholder="El mensaje será anónimo, siéntete libre de comentarnos lo que quieras :)" onChange = {e => setText(e.target.value)} />
-          <button className="button-header button-2" onClick = {e => {e.preventDefault(); addComment({text}); setText(''); }}>Enviar mensaje</button>
-          
-        </div>
-      </div>
     </section>
     </>
   );
 };
 
-Nosotros.propTypes = {
-  addComment: PropTypes.func.isRequired
-}
 
-export default connect(null, {addComment})(Nosotros);
+export default QuienesSomos;

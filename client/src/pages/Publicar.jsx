@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ReunionSection from '../components/ReunionSection'
 import PostSection from '../components/PostSection'
+import SecondHeader from '../components/headerComponents/SecondHeader';
 import '../styles/pages/Publicaciones.css';
 
 const Publicar = () => {
@@ -9,6 +10,8 @@ const Publicar = () => {
   const Publicacion = ["Publicar Post", "Publicar Reunión"];
   const [myPublicacion, setMyPublicacion] = useState("Publicar Post");
   return (
+    <>
+    <SecondHeader />
     <section className="ochenta centrado">
       <div className="navegacion-publicaciones">
         {
@@ -28,6 +31,7 @@ const Publicar = () => {
         {myPublicacion == "Publicar Reunión" && <ReunionSection/> }
       </div>
     </section>
+    </>
   );
 };
 
