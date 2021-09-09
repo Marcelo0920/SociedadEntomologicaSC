@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {logout} from '../../actions/auth';
+import Slider from '../slider/Slider';
 
 import User from '../../static/user-icon.png';
 import '../../styles/components/Header.css';
@@ -18,7 +19,7 @@ const Header = ({auth: {isAuthenticated, loading}, logout}) =>
                 <nav className="navigation-link">  {/*<---------Navega a través de los posibles valores de title para hacerle Link*/}
                     <ul>
                         <li><Link to = "/">Inicio</Link></li>
-                        <li>Nosotros
+                        <li className = "hide"><Link to = "/nosotros/quienessomos" >Nosotros </Link>
                             <ul>
                                 <li><Link to = "/nosotros/quienessomos">Quiénes Somos</Link></li>
                                 <li><Link to = "/nosotros/contacto">Contacto</Link></li>
@@ -43,7 +44,7 @@ const Header = ({auth: {isAuthenticated, loading}, logout}) =>
                 <img alt="logo" />
                 <nav className="navigation-link">
                     <li><Link to = "/">Inicio</Link></li>
-                            <li className = "hide"><Link>Nosotros </Link>
+                            <li className = "hide"><Link to = "/nosotros/quienessomos" >Nosotros </Link>
                                 <ul>
                                     <li><Link to = "/nosotros/quienessomos">Quiénes Somos</Link></li>
                                     <li><Link to = "/nosotros/contacto">Contacto</Link></li>
@@ -63,6 +64,7 @@ const Header = ({auth: {isAuthenticated, loading}, logout}) =>
 
     return(
         <header className="header-inicio"> 
+            <Slider />
             <div className="navigation">
             {
                 (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)

@@ -1,17 +1,22 @@
 .header-inicio
 {
-    background-image: url('../../static/header.jpg');
+    /*background-image: url('../../static/header.jpg'); */
     height: 120vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+}
+.index
+{
+    position: absolute;
+    z-index: -1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 .navigation
 {
     display: flex;
     justify-content: space-between;
     padding: 40px 70px;
-    position: relative;
 }
 .navigation-link
 {
@@ -56,6 +61,8 @@
 {
     margin: 250px 125px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 /* .user__menu ul
 {
